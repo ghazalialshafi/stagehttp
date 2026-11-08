@@ -35,6 +35,7 @@ Plain `--mm:arc` is enough (no `-d:flowThreads`): workers share nothing.
 | 64 conns, pipeline 16 | does not pipeline (21 req/s) | 1.4-2.0M req/s |
 | connection per request | never closes on `Connection: close` | ~37k conn/s |
 | 10,000 conns | 5.98 us/req | 5.72 us/req (kernel/cache bound: no real gain) |
+
 Memory is flat (2 MB RSS) after millions of requests; ASAN clean (no errors; ~60 KB of
 shutdown-time stagelane frames reported by LSan).
   
